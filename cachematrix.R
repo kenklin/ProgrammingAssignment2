@@ -4,7 +4,33 @@
 ## This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  ## The cached inverted matrix data
+  i <- NULL
+  
+  ## Sets un-inverted matrix
+  set <- function(y) {
+    x <<- y
+    i <<- NULL
+  }
+  
+  ## Gets the un-inverted matrix
+  get <- function() {
+    return(x)
+  }
+  
+  ## Sets the inverted matrx
+  setinverse <- function(inv) {
+    i <<- inv
+  }
+  
+  ## Gets the cached inverted mat
+  getinverse <- function() {
+    return(i)
+  }
+  
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
